@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<script src="jquery-1.12.3.js">
+</script>
+</head>
+
+<body>
+<table id="t1">
+	<tr>
+		<td>12</td>
+		<td>5</td>
+		<td>6</td>
+		<td>12</td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td>23</td>
+		<td>4</td>
+		<td>25</td>
+	</tr>
+	<tr>
+		<td>9</td>
+		<td>30</td>
+		<td>13</td>
+		<td>22</td>
+	</tr>
+</table>
+<input id="sum1">sum1</input>
+<input id="sum2">sum2</input>
+<input id="sum3">sum3</input>
+<input id="sum4">sum4</input>
+<button id="sum">ADD</button>
+<button id="clear">clear</button>
+<script type="text/javascript">
+	
+	function mySum(i){
+		var sum=0;
+
+		$('#t1 tr').each(function(){
+			var value = $(this).find('td').eq(i).text();
+			 if(!isNaN(value) && value.length != 0) {
+        sum += parseFloat(value);
+    }
+			
+		})
+		return sum;
+	}
+	$("#sum").click(function(){
+	 $("#sum1").val(mySum(0));
+	 $("#sum2").val(mySum(1));
+	 $("#sum3").val(mySum(2));
+	 $("#sum4").val(mySum(3));
+		})
+	$("#clear").click(function(){
+		$("#sum1").val('');
+		$("#sum2").val('');
+		$("#sum3").val('');
+		$("#sum4").val('');
+	})
+		
+</script>
+
+</body>
+</html>
